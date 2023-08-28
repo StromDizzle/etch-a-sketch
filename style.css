@@ -1,0 +1,19 @@
+.box{
+    background-color: blue;
+    min-width: 12px;
+    min-height: 12px;
+}
+
+.container{
+    display:flex;
+    flex-direction: column;
+    max-width: 900px;
+}
+
+.row {
+    display: flex;
+}
+
+.color-change{
+    background-color: rgb(255, 255, 0);
+}
