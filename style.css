@@ -1,3 +1,8 @@
+h1 {
+    color: #F09F87;
+    text-align: center;
+}
+
 .box{
     background-color: #E2FC81;
     flex:1;
