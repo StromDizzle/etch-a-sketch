@@ -1,8 +1,15 @@
-const container = document.querySelector(".container");
 
-createBoxArray(64, 64);
-addListeners();
+main();
 
+function main(){
+    let sides = "";
+    const button = document.querySelector("button")
+    console.log(button);
+    button.addEventListener('click', function (){
+        replaceGrid();
+    })
+    createBoxArray(16, 16);
+}
 
 //returns node containing box element
 function createBox(){
@@ -13,7 +20,8 @@ function createBox(){
 
 //take row and column values and create a grid of buttons on the page
 function createBoxArray(r, c){
-
+    const container = document.querySelector(".grid-container");
+    container.innerHTML = "";
     const box = createBox();
     const row = document.createElement('div');
     row.classList.add('row');
@@ -31,7 +39,7 @@ function createBoxArray(r, c){
         //newRow.classList.add(`row-${j}`);
         container.appendChild(newRow);
    }
-
+   addListeners();
 }
 
 function addListeners(){
@@ -44,6 +52,26 @@ function addListeners(){
 function changeColor(currBox){
     currBox.classList.add('color-change');
 }
+
+function replaceGrid(){
+    sides = prompt("Enter number of squares per side: ");
+    console.log("yes")
+    testSides = Number(sides);
+    if (isNaN(testSides)){
+        alert("Input must be a number!");
+        replaceGrid();
+    }
+    
+    if (testSides <= 0 || testSides > 100){
+        alert("Input must be from 1-100");
+        replaceGrid();
+    }
+    createBoxArray(sides, sides);
+}
+
+
+
+
 
 
 
