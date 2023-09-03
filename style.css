@@ -26,9 +26,10 @@ h1 {
     display: flex;
     justify-content: center;
     margin-top: 24px;
+    gap: 24px;
 }
 
-.new-grid{
+button{
 
     display: inline-block;
     outline: 0;

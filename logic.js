@@ -3,12 +3,15 @@ main();
 
 function main(){
     let sides = "";
-    const button = document.querySelector("button")
-    console.log(button);
-    button.addEventListener('click', function (){
-        replaceGrid();
+    const standardButton = document.querySelector(".standard-button");
+    standardButton.addEventListener('click', function (){
+        replaceGrid("normal");
     })
-    createBoxArray(16, 16);
+    const colorRandomizerButton = document.querySelector(".color-randomizer-button");
+    colorRandomizerButton.addEventListener('click', function (){
+        replaceGrid("color-randomizer");
+    })
+    createBoxArray(16, 16, "normal");
 }
 
 //returns node containing box element
@@ -19,7 +22,7 @@ function createBox(){
 }
 
 //take row and column values and create a grid of buttons on the page
-function createBoxArray(r, c){
+function createBoxArray(r, c, mode){
     const container = document.querySelector(".grid-container");
     container.innerHTML = "";
     const box = createBox();
@@ -39,23 +42,38 @@ function createBoxArray(r, c){
         //newRow.classList.add(`row-${j}`);
         container.appendChild(newRow);
    }
-   addListeners();
+   addBoxListeners(mode);
 }
 
-function addListeners(){
+function addBoxListeners(mode){
     let allBoxes = document.querySelectorAll('.box');
-    allBoxes.forEach(currentBox => {
-        currentBox.addEventListener('mouseover', () => changeColor(currentBox))
-    });    
+    switch (mode) {
+        case "normal":
+            allBoxes.forEach(currentBox => {
+                currentBox.addEventListener('mouseover', () => changeColor(currentBox))
+            });
+        case "color-randomizer":
+            allBoxes.forEach(currentBox => {
+                currentBox.addEventListener('mouseover', () => randomizeColor(currentBox))
+            });
+    }
+
 }
 
 function changeColor(currBox){
     currBox.classList.add('color-change');
 }
 
-function replaceGrid(){
+function randomizeColor(currBox){
+    console.log("color random function start");
+    const r = Math.random() * 255;
+    const g = Math.random() * 255;
+    const b = Math.random() * 255;
+    currBox.style.backgroundColor = `rgb(${r},${g},${b})`;
+}
+
+function replaceGrid(mode){
     sides = prompt("Enter number of squares per side: ");
-    console.log("yes")
     testSides = Number(sides);
     if (isNaN(testSides)){
         alert("Input must be a number!");
@@ -66,7 +84,7 @@ function replaceGrid(){
         alert("Input must be from 1-100");
         replaceGrid();
     }
-    createBoxArray(sides, sides);
+    createBoxArray(sides, sides, mode);
 }
 
 
