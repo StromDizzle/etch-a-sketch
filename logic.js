@@ -11,6 +11,10 @@ function main(){
     colorRandomizerButton.addEventListener('click', function (){
         replaceGrid("color-randomizer");
     })
+    const darkenButton = document.querySelector(".darken-button");
+    darkenButton.addEventListener('click', function (){
+        replaceGrid("darken");
+    })
     createBoxArray(16, 16, "normal");
 }
 
@@ -52,10 +56,18 @@ function addBoxListeners(mode){
             allBoxes.forEach(currentBox => {
                 currentBox.addEventListener('mouseover', () => changeColor(currentBox))
             });
+            break;
         case "color-randomizer":
             allBoxes.forEach(currentBox => {
                 currentBox.addEventListener('mouseover', () => randomizeColor(currentBox))
             });
+            break;
+        case "darken":
+            allBoxes.forEach(currentBox => {
+                currentBox.style.backgroundColor = "rgb(0, 0, 0, 0)";
+                currentBox.addEventListener('mouseover', () => darkenColor(currentBox))
+            });
+            break;
     }
 
 }
@@ -70,6 +82,14 @@ function randomizeColor(currBox){
     const g = Math.random() * 255;
     const b = Math.random() * 255;
     currBox.style.backgroundColor = `rgb(${r},${g},${b})`;
+}
+
+function darkenColor(currBox){
+    let currentOpacity = Number(currBox.style.opacity);
+    if (currentOpacity < 1){
+        currBox.style.backgroundColor = `rgb(0, 0, 0, ${currentOpacity + 0.1})`
+        currBox.style.opacity = currentOpacity + 0.1;
+    }
 }
 
 function replaceGrid(mode){
