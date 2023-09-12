@@ -6,9 +6,22 @@
 #DC79D6
 */
 
+body {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
 h1 {
     color: #F09F87;
     text-align: center;
+}
+
+.header {
+    background-color: #8FDBD1;
 }
 
 .box{
@@ -17,6 +30,11 @@ h1 {
 }
 
 .grid-parent{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.sketch-pad{
     display: flex;
     justify-content: center;
 }
@@ -30,11 +48,20 @@ h1 {
 
 }
 
-.container{
+.button-container{
     display: flex;
     justify-content: center;
     margin-top: 24px;
     gap: 24px;
+}
+
+.footer {
+    display: flex;
+    margin-top: auto;
+    justify-content: space-between;
+    padding: 24px;
+    background-color: #8FDBD1;
+    color: #F09F87;
 }
 
 button{

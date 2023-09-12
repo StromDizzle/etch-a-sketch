@@ -36,14 +36,12 @@ function createBoxArray(r, c, mode){
     //create a row of c boxes
     for (let i = 0; i < c; i++){
         newBox = box.cloneNode();
-        //newBox.classList.add(`column-${i}`);
         row.appendChild(newBox);
     }
 
     //add row of boxes r times to container
    for (let j = 0; j < r; j++){
         newRow = row.cloneNode(true);
-        //newRow.classList.add(`row-${j}`);
         container.appendChild(newRow);
    }
    addBoxListeners(mode);
@@ -94,6 +92,7 @@ function darkenColor(currBox){
 
 function replaceGrid(mode){
     sides = prompt("Enter number of squares per side: ");
+    const grid = document.querySelector(".grid-container");
     testSides = Number(sides);
     if (isNaN(testSides)){
         alert("Input must be a number!");
@@ -104,6 +103,11 @@ function replaceGrid(mode){
         alert("Input must be from 1-100");
         replaceGrid();
     }
+    //check for odd number of boxes, if so, set width to 899 to remove dead pixel on the right
+    if (testSides % 2 === 1){
+        grid.style.width = '899px';
+    }
+    else grid.style.width = '900px';
     createBoxArray(sides, sides, mode);
 }
 
