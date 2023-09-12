@@ -1,5 +1,5 @@
 /*Color Palette:
-#E2FC81
+#F5FEC8
 #F09F87
 #9895FC
 #8FDBD1
@@ -7,6 +7,7 @@
 */
 
 body {
+    font-family: 'Montserrat', sans-serif;
     display:flex;
     flex-direction: column;
     justify-content: space-between;
@@ -16,16 +17,27 @@ body {
 }
 
 h1 {
-    color: #F09F87;
+    color: white;
     text-align: center;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .header {
-    background-color: #8FDBD1;
+    display: flex;
+    justify-content: space-between;
+    background-color: #9895FC;
+    padding: 0px 12px 0px;
+}
+
+.header-logo{
+    align-self: center;
+    width: 56px;
+    height: 56px;
 }
 
 .box{
-    background-color: #E2FC81;
+    background-color: #F5FEC8;
     flex:1;
 }
 
@@ -37,6 +49,7 @@ h1 {
 .sketch-pad{
     display: flex;
     justify-content: center;
+    gap: 24px;
 }
 
 .grid-container{
@@ -44,15 +57,21 @@ h1 {
     flex-direction: column;
     height: 900px;
     width: 900px;
-    box-shadow: 0 4px 14px 0 #9895FC;   
+    box-shadow: 0 4px 14px 0 #9895FC;  
+}
 
+.grid-right-buttons{
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+    align-self: center;
 }
 
 .button-container{
     display: flex;
     justify-content: center;
     margin-top: 24px;
-    gap: 24px;
+
 }
 
 .footer {
@@ -60,8 +79,12 @@ h1 {
     margin-top: auto;
     justify-content: space-between;
     padding: 24px;
-    background-color: #8FDBD1;
-    color: #F09F87;
+    background-color: #9895FC;
+    color: white;
+}
+
+.footer-left, .footer-center{
+    align-self: center;
 }
 
 button{
@@ -70,7 +93,7 @@ button{
     outline: 0;
     cursor: pointer;
     border: none;
-    padding: 0 56px;
+    padding: 0 16px;
     height: 45px;
     line-height: 45px;
     border-radius: 7px;

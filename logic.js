@@ -1,8 +1,9 @@
-
+var currMode = "normal";
+var currSides = 16;
 main();
 
+
 function main(){
-    let sides = "";
     const standardButton = document.querySelector(".standard-button");
     standardButton.addEventListener('click', function (){
         replaceGrid("normal");
@@ -15,7 +16,11 @@ function main(){
     darkenButton.addEventListener('click', function (){
         replaceGrid("darken");
     })
-    createBoxArray(16, 16, "normal");
+    const clearButton = document.querySelector(".clear-button");
+    clearButton.addEventListener('click', function (){
+        createBoxArray(currSides, currSides, currMode);
+    })
+    createBoxArray(currSides, currSides, currMode);
 }
 
 //returns node containing box element
@@ -27,6 +32,8 @@ function createBox(){
 
 //take row and column values and create a grid of buttons on the page
 function createBoxArray(r, c, mode){
+    currMode = mode;
+    currSides = r;
     const container = document.querySelector(".grid-container");
     container.innerHTML = "";
     const box = createBox();
@@ -75,7 +82,6 @@ function changeColor(currBox){
 }
 
 function randomizeColor(currBox){
-    console.log("color random function start");
     const r = Math.random() * 255;
     const g = Math.random() * 255;
     const b = Math.random() * 255;
@@ -94,6 +100,8 @@ function replaceGrid(mode){
     sides = prompt("Enter number of squares per side: ");
     const grid = document.querySelector(".grid-container");
     testSides = Number(sides);
+    currSides = testSides;
+    currMode = mode;
     if (isNaN(testSides)){
         alert("Input must be a number!");
         replaceGrid();
