@@ -2,8 +2,7 @@
 #F5FEC8
 #F09F87
 #9895FC
-#8FDBD1
-#DC79D6
+#FF964F
 */
 
 body {
@@ -42,8 +41,20 @@ h1 {
 }
 
 .grid-parent{
+    display: flex;
+    justify-content: center;
     margin-top: auto;
     margin-bottom: auto;
+}
+
+.frame{
+    border-style:solid;
+    border-width: 64px;
+    border-radius: 32px;
+    border-color: #FF964F;
+    width: 1200px;
+    padding: 12px;
+    background-color: #fed0b1;
 }
 
 .sketch-pad{
@@ -57,7 +68,10 @@ h1 {
     flex-direction: column;
     height: 900px;
     width: 900px;
-    box-shadow: 0 4px 14px 0 #9895FC;  
+    padding: 4px;
+    box-shadow: 0px 0px 4px #9895FC inset; 
+    background-color: white; 
+    /*box-shadow: 0 4px 14px 0 #9895FC;  */
 }
 
 .grid-right-buttons{
@@ -97,7 +111,7 @@ button{
     height: 45px;
     line-height: 45px;
     border-radius: 7px;
-    background-color: #F09F87;
+    background-color: #9895FC;
     color: white;
     font-weight: 400;
     font-size: 16px;
