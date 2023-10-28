@@ -112,6 +112,16 @@ button{
     gap: 12px;
 }
 
+.button-container > .clear-button {
+    background-color: white;
+    color: var(--primary-background-color);
+}
+
+.button-container > .clear-button:hover {
+    background-color: var(--primary-background-color);
+    color: white;
+}
+
 .button-container button:hover {
     color: var(--primary-background-color);
     background-color: white;
