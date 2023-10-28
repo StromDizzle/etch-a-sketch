@@ -113,9 +113,9 @@ function replaceGrid(mode){
     }
     //check for odd number of boxes, if so, set width to 899 to remove dead pixel on the right
     if (testSides % 2 === 1){
-        grid.style.width = '899px';
+        grid.style.width = '499px';
     }
-    else grid.style.width = '900px';
+    else grid.style.width = '500px';
     createBoxArray(sides, sides, mode);
 }
 

@@ -1,9 +1,11 @@
-/*Color Palette:
-#F5FEC8
-#F09F87
-#9895FC
-#FF964F
-*/
+
+:root {
+    --primary-background-color: #9895FC;
+    --secondary-background-color: #F5FEC8;
+    --tertiary-background-color: #fed0b1;
+    --primary-box-shadow-color: #9895FC;
+    --primary-border-color: #FF964F;
+}
 
 body {
     font-family: 'Montserrat', sans-serif;
@@ -22,10 +24,27 @@ h1 {
     margin-left: auto;
 }
 
+
+button{
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    border: none;
+    padding: 0 11px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 7px;
+    background-color: var(--primary-background-color);
+    color: white;
+    font-weight: 400;
+    font-size: 14px;
+    box-shadow: 0 4px 14px 0 var(--primary-box-shadow-color);   
+}
+
 .header {
     display: flex;
     justify-content: space-between;
-    background-color: #9895FC;
+    background-color: var(--primary-background-color);
     padding: 0px 12px 0px;
 }
 
@@ -36,7 +55,7 @@ h1 {
 }
 
 .box{
-    background-color: #F5FEC8;
+    background-color: var(--secondary-background-color);
     flex:1;
 }
 
@@ -49,12 +68,12 @@ h1 {
 
 .frame{
     border-style:solid;
-    border-width: 64px;
-    border-radius: 32px;
-    border-color: #FF964F;
-    width: 1200px;
+    border-width: 48px;
+    border-radius: 24px;
+    border-color: var(--primary-border-color);
+    width: 550px;
     padding: 12px;
-    background-color: #fed0b1;
+    background-color: var(--tertiary-background-color);
 }
 
 .sketch-pad{
@@ -63,15 +82,20 @@ h1 {
     gap: 24px;
 }
 
+.grid-and-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .grid-container{
     display:flex;
     flex-direction: column;
-    height: 900px;
-    width: 900px;
+    height: 500px;
+    width: 500px;
     padding: 4px;
-    box-shadow: 0px 0px 4px #9895FC inset; 
+    box-shadow: 0px 0px 4px var(--primary-box-shadow-color) inset; 
     background-color: white; 
-    /*box-shadow: 0 4px 14px 0 #9895FC;  */
 }
 
 .grid-right-buttons{
@@ -85,7 +109,12 @@ h1 {
     display: flex;
     justify-content: center;
     margin-top: 24px;
+    gap: 12px;
+}
 
+.button-container button:hover {
+    color: var(--primary-background-color);
+    background-color: white;
 }
 
 .footer {
@@ -93,29 +122,12 @@ h1 {
     margin-top: auto;
     justify-content: space-between;
     padding: 24px;
-    background-color: #9895FC;
+    background-color: var(--primary-background-color);
     color: white;
 }
 
 .footer-left, .footer-center{
     align-self: center;
-}
-
-button{
-
-    display: inline-block;
-    outline: 0;
-    cursor: pointer;
-    border: none;
-    padding: 0 16px;
-    height: 45px;
-    line-height: 45px;
-    border-radius: 7px;
-    background-color: #9895FC;
-    color: white;
-    font-weight: 400;
-    font-size: 16px;
-    box-shadow: 0 4px 14px 0 #9895FC;    
 }
 
 .row {
@@ -124,5 +136,5 @@ button{
 }
 
 .color-change{
-    background-color: #9895FC;
+    background-color: var(--primary-background-color);
 }
